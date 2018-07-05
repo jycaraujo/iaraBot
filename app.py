@@ -32,6 +32,10 @@ def webhook():
         res = act.actionSaudacao(req)
     elif action == 'coordenador-curso':
         res = act.actionCoordCurso(req)
+    elif action == 'coordenador-curso.sabermais':
+        res = act.actionCoordCursoMais(req)
+    elif action == 'sobre-docente':
+        res = act.actionSobreDocente(req)
     #
     print(str(res))
 
