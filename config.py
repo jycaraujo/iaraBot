@@ -1,1 +1,7 @@
 PAGE_ACCESS_TOKEN = "EAAB91PGd42MBAD6qgQh2tvZCZATXgcrfF1V3QoFbgVDE5hAzFiXqwzitCMRutkjNw9IcbqK6GPoKw6aK3ljYhX6pnZAicWUj6ZCy8kEVZAVSfFOZC3SAU2ThKXFvuRlzPNFDT8DtATVy4qFuc0rOYgk4spfYtkWLabVv2KOHXRAFiUn1UbJZAVS"
+
+DIALOGFLOW_BASE_URL = "https://api.dialogflow.com/v1/query?v=20150910"
+
+CLIENT_ACCESS_TOKEN = "9c9935da5f254f3d98a4f74c676c8a7c"
+
+CONTEXTS_BASE_URL = "https://api.dialogflow.com/v1/contexts?sessionId="
