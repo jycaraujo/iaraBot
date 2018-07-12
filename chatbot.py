@@ -13,17 +13,36 @@ class Chatbot(object):
         self.iara = ChatBot(
             'Iara',
             logic_adapters=[
-                'chatterbot.logic.BestMatch'
+                {
+                    'import_path': 'chatterbot.logic.BestMatch'
+                },
+                # {
+                #     'import_path': 'chatterbot.logic.MathematicalEvaluation'
+                # },
+                {
+                    'import_path': 'chatterbot.logic.LowConfidenceAdapter',
+                    'threshold': 0.45,
+                    'default_response': 'Desculpa, nao consegui entender o que voce disse, pode me explicar melhor?'
+                }
+
+            ],
+            preprocessors=[
+                'chatterbot.preprocessors.clean_whitespace'
             ],
             storage_adapter="chatterbot.storage.MongoDatabaseAdapter",
-            filters=["chatterbot.filters.RepetitiveResponseFilter"]
-            # database='iaradb'
+            filters=["chatterbot.filters.RepetitiveResponseFilter"],
+            database='iaradb'
         )
         # self.iara.set_trainer(ListTrainer)
         # self.prepare_data()
         self.iara.set_trainer(ChatterBotCorpusTrainer)
         self.iara.train(
-            "chatterbot.corpus.portuguese",
+            # "chatterbot.corpus.portuguese.conversations",
+            "chatterbot.corpus.portuguese.compliment",
+            "chatterbot.corpus.portuguese.greetings",
+            'conversas',
+            # "chatterbot.corpus.french"
+            # "chatterbot.corpus.portuguese.linguistic_knowledge",
             # data
         )
         self.iara.trainer.export_for_training('./iara.json')
@@ -49,9 +68,8 @@ class Chatbot(object):
     def prepare_data(self):
         print('prepare data')
         temp = []
-        print(len(glob.glob1("dataset", "*.json")))
-        for i in range(len(glob.glob1("dataset","*.json"))):
-            print(str(i))
-            temp = self.prepare_training_data('dataset/message'+str(i)+'.json')
-
-        self.iara.train(temp)
+        print(len(glob.glob1("corpus", "*.json")))
+        for i in range(len(glob.glob1("corpus","*.json"))):
+            # print(str(i))
+            temp = self.prepare_training_data('corpus/message'+str(i)+'.json')
+            self.iara.train(temp)

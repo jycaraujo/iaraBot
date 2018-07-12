@@ -18,29 +18,9 @@ def webhook():
     try:
         # print(act.getSessionId(req))
         # print(session_)
-        # print(req)
+        print(req.get('queryResult').get('action'))
         res = {}
-        # if act.compare_session(req):
-        #     print('same session')
-        #     res = process_request(req)
-        #     print(res)
-        #     if res is None:
-        #         res_iara = bot.iara.get_response(req.get('queryResult').get('queryText'))
-        #         print(res_iara)
-        #         # res = {}
-        #         res = {
-        #             'fulfillmentText': str(res_iara)
-        #         }
-        # else:
-        #     res = {
-        #         "resetContexts": True,
-        #         "query": req.get('queryResult').get('queryText'),
-        #         "lang": "en",
-        #         "sessionId": act.getSessionId(req)
-        #     }
-        #     session_ =   act.getSessionId(req)
-        #     act.reset_contexts(res)
-        # # print(res)
+
         res = process_request(req)
         print(res)
         if res is None:
@@ -61,20 +41,18 @@ def webhook():
 
 
 def process_request(req):
-    res = ""
     action = req.get('queryResult').get('action')
-    if action == 'saudacao':
-        res = act.actionSaudacao(req)
-    elif action == 'coordenador-curso':
+    # if action == 'saudacao':
+    #     res = act.actionSaudacao(req)
+    if action == 'coordenador-curso':
         res = act.actionCoordCurso(req)
     elif action == 'prerequisito':
         res = act.actionPreReq(req)
+    elif action == 'lugar-horario':
+        res = act.actionLugarHorario(req)
     else:
-        plataform = req.get('originalDetectIntentRequest').get('payload').get('source')
-        if plataform == 'facebook':
-            res = act.generate_response_facebook(req, None)
-        else:
-            res = act.generate_response(req, None)
+        res = act.generate_response(req, None)
+
     return res
 
 if __name__ == '__main__':
