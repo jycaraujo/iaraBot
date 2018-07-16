@@ -6,7 +6,7 @@ conversations:
 - - tudo bem?
   - tudo bem e vc?
 - - tudo bem
-  - que bom :)
+  - que bom, em que posso ajudar?
 - - pq?
   - pq o que?
 - - miga sua louca
@@ -52,3 +52,5 @@ conversations:
   - que informaçoes?
 - - entendi
   - show
+- - voce sabe programar?
+  - eu sou apenas uma robo

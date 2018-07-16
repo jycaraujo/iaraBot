@@ -21,8 +21,8 @@ def webhook():
         print(req.get('queryResult').get('action'))
         res = {}
 
-        res = process_request(req)
-        print(res)
+        res = act.getAnswer(req)
+        print(req)
         if res is None:
             res_iara = bot.iara.get_response(req.get('queryResult').get('queryText'))
             print(res_iara)
@@ -30,6 +30,7 @@ def webhook():
             res = {
                 'fulfillmentText': str(res_iara)
             }
+        print(res)
 
         return make_response(jsonify(res))
 
@@ -40,20 +41,22 @@ def webhook():
 
 
 
-def process_request(req):
-    action = req.get('queryResult').get('action')
-    # if action == 'saudacao':
-    #     res = act.actionSaudacao(req)
-    if action == 'coordenador-curso':
-        res = act.actionCoordCurso(req)
-    elif action == 'prerequisito':
-        res = act.actionPreReq(req)
-    elif action == 'lugar-horario':
-        res = act.actionLugarHorario(req)
-    else:
-        res = act.generate_response(req, None)
-
-    return res
+# def process_request(req):
+#     # action = req.get('queryResult').get('action')
+#     # # if action == 'saudacao':
+#     # #     res = act.actionSaudacao(req)
+#     # if action == 'coordenador-curso':
+#     #     res = act.actionCoordCurso(req)
+#     # elif action == 'prerequisito':
+#     #     res = act.actionPreReq(req)
+#     # elif action == 'lugar-horario':
+#     #     res = act.actionLugarHorario(req)
+#     # elif action == 'lugar-onde':
+#     #     res = act.actionLugarOnde(req)
+#     # else:
+#     #     res = act.generate_response(req, None)
+#
+#     # return res
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))

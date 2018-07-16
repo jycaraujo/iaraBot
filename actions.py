@@ -36,18 +36,7 @@ def getUserInfo(contexts):
 
 
 def actionCoordCurso(req):
-    curso = req.get('queryResult').get('parameters')['curso']
-    result = db.answer.find({
-        'action': req.get('queryResult').get('action'),
-        'curso': curso,
-    })
-    if result[0] is not None:
-        result = result[0]
-    else:
-        result[
-            "fulfillmentText"] = "nao tenho informaçoes sobre esse curso, tem certeza que o nome do curso eh " + curso + " ?"
-    return generate_response(req, result)
-
+    return getAnswer(req, ['curso'])
 
 def processFulfillmentText(req, result):
     if result is None:
@@ -143,9 +132,9 @@ def generate_followup_event(req, result):
         data = {
             "event": {
                 "name": event,
-                "data": {
-                    "docente-nome": "Ivan"
-                }
+                # "data": {
+                #     "docente-nome": "Ivan"
+                # }
             },
             "lang": "en",
             "sessionId": getSessionId(req)
@@ -173,30 +162,29 @@ def reset_contexts(data):
 
 
 def actionPreReq(req):
-    disciplina = req.get('queryResult').get('parameters')['disciplina']
-    result = db.answer.find({
-        'action': req.get('queryResult').get('action'),
-        'disciplina': disciplina,
-    })
-    if result.count() > 0:
-        result = result[0]
-    else:
-        result = {}
-        result["fulfillmentText"] = "nao tenho informaçoes sobre essa disciplina"
-    return generate_response(req, result)
+    return getAnswer(req, ['disciplina'])
 
 
 def actionLugarHorario(req):
-    lugar = req.get('queryResult').get('parameters')['lugar']
-    print(lugar)
-    result = db.answer.find({
-        'action': req.get('queryResult').get('action'),
-        'lugar': lugar,
-    })
-    print(result.count())
+    return getAnswer(req, ['lugar'])
+
+def getAnswer(req):
+    temp = {}
+    parameters = req.get('queryResult').get('parameters').keys()
+    for param_name in parameters:
+        aux = req.get('queryResult').get('parameters')[param_name]
+        if aux is not None:
+            temp[param_name] = aux
+    temp['action'] = req.get('queryResult').get('action')
+    print(temp)
+    result = db.answer.find({"$and":[temp]})
     if result.count() > 0:
         result = result[0]
+        print(result)
     else:
-        result = {}
-        result["fulfillmentText"] = "nao tenho informaçoes sobre esse lugar"
+        result = None
     return generate_response(req, result)
+
+
+def actionLugarOnde(req):
+    return getAnswer(req, ['lugar'])

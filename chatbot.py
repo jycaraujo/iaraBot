@@ -21,7 +21,7 @@ class Chatbot(object):
                 # },
                 {
                     'import_path': 'chatterbot.logic.LowConfidenceAdapter',
-                    'threshold': 0.45,
+                    'threshold': 0.55,
                     'default_response': 'Desculpa, nao consegui entender o que voce disse, pode me explicar melhor?'
                 }
 
