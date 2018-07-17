@@ -33,10 +33,10 @@ def getUserInfo(contexts):
             result = requests.get(request_string)
             return result.json()
     return None
-
-
-def actionCoordCurso(req):
-    return getAnswer(req, ['curso'])
+#
+#
+# def actionCoordCurso(req):
+#     return getAnswer(req, ['curso'])
 
 def processFulfillmentText(req, result):
     if result is None:
@@ -160,13 +160,13 @@ def reset_contexts(data):
     r = requests.post(config.DIALOGFLOW_BASE_URL, data=json.dumps(data), headers=header)
     print(r)
 
-
-def actionPreReq(req):
-    return getAnswer(req, ['disciplina'])
-
-
-def actionLugarHorario(req):
-    return getAnswer(req, ['lugar'])
+#
+# def actionPreReq(req):
+#     return getAnswer(req, ['disciplina'])
+#
+#
+# def actionLugarHorario(req):
+#     return getAnswer(req, ['lugar'])
 
 def getAnswer(req):
     temp = {}
@@ -185,6 +185,3 @@ def getAnswer(req):
         result = None
     return generate_response(req, result)
 
-
-def actionLugarOnde(req):
-    return getAnswer(req, ['lugar'])
