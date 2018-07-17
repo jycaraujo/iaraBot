@@ -1,1 +1,1 @@
-web: gunicorn iarabot.wsgi
+web: python app.py
