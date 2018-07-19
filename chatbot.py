@@ -38,7 +38,7 @@ class Chatbot(object):
         self.iara.set_trainer(ChatterBotCorpusTrainer)
         self.iara.train(
             # "chatterbot.corpus.portuguese.conversations",
-            "chatterbot.corpus.portuguese.compliment",
+            # "chatterbot.corpus.portuguese.compliment",
             "chatterbot.corpus.portuguese.greetings",
             'conversas',
             # "chatterbot.corpus.french"

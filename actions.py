@@ -1,5 +1,7 @@
 import json
 import requests
+import time
+
 import config
 from services import db
 
@@ -68,8 +70,9 @@ def processFulfillmentText(req, result):
             header = {"Authorization": "Bearer " + config.CLIENT_ACCESS_TOKEN, "Content-Type": "application/json"}
             url = config.CONTEXTS_BASE_URL + getSessionId(req)
             r = requests.post(str(url), data=json.dumps(aux), headers=header)
-            print(aux)
-            print(r)
+            # time.sleep(2)
+            # print(aux)
+            # print(r)
         else:
             generate_followup_event(req, result)
             # resposta['']
@@ -86,7 +89,7 @@ def generate_response_facebook(req, result):
         result = db.answer.find_one({'action': req.get('queryResult').get('action')})
     resposta = {}
     plataform = 'facebook'
-    print(result)
+    # print(result)
     if result is not None:
         if result.get('followupEvent') is None:
             aux = []
@@ -131,18 +134,20 @@ def generate_followup_event(req, result):
     if event is not None:
         data = {
             "event": {
-                "name": event,
+                "name": event
                 # "data": {
-                #     "docente-nome": "Ivan"
+                #     "#contexto_global.professor": "Ivan Mathias Filho"
                 # }
             },
             "lang": "en",
             "sessionId": getSessionId(req)
         }
+        print('evento')
+        print(data)
         header = {"Authorization": "Bearer " + config.CLIENT_ACCESS_TOKEN, "Content-Type": "application/json"}
         r = requests.post(config.DIALOGFLOW_BASE_URL, data=json.dumps(data), headers=header)
-        print(data)
-        print(r)
+
+        # print(r)
 
 
 def getSessionId(req):
@@ -158,7 +163,7 @@ def compare_session(req):
 def reset_contexts(data):
     header = {"Authorization": "Bearer " + config.CLIENT_ACCESS_TOKEN, "Content-Type": "application/json"}
     r = requests.post(config.DIALOGFLOW_BASE_URL, data=json.dumps(data), headers=header)
-    print(r)
+    # print(r)
 
 #
 # def actionPreReq(req):
@@ -169,18 +174,23 @@ def reset_contexts(data):
 #     return getAnswer(req, ['lugar'])
 
 def getAnswer(req):
-    temp = {}
     parameters = req.get('queryResult').get('parameters').keys()
+
+    temp2 = []
     for param_name in parameters:
         aux = req.get('queryResult').get('parameters')[param_name]
+        temp = {}
         if aux is not None:
-            temp[param_name] = aux
+            temp[param_name] = {"$eq": aux }
+        temp2.append(temp)
+    temp={}
     temp['action'] = req.get('queryResult').get('action')
-    print(temp)
-    result = db.answer.find({"$and":[temp]})
+    temp2.append(temp)
+    print(temp2)
+    result = db.answer.find({"$and":temp2})
     if result.count() > 0:
         result = result[0]
-        print(result)
+        # print(result)
     else:
         result = None
     return generate_response(req, result)
