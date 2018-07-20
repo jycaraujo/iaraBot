@@ -6,8 +6,10 @@ from flask import request
 
 import actions as act
 from chatbot import Chatbot
+
 session_ = ''
 app = Flask(__name__)
+
 
 @app.route('/', methods=['POST'])
 def webhook():
@@ -17,22 +19,21 @@ def webhook():
     """
     req = request.get_json(silent=True, force=True)
     try:
-        # print(req.get('queryResult').get('action'))
-        print("#####################################################################")
+        print("################################REQUISICAO#####################################")
         print(req)
-        print("#####################################################################")
         if req.get('queryResult').get('action') == 'saudacao':
             res = act.actionSaudacao(req)
-        else:
-            res = act.getAnswer(req)
-        if res is None:
+        elif req.get('queryResult').get('action') is None:
             res_iara = bot.iara.get_response(req.get('queryResult').get('queryText'))
+            print("#################################RESPOSTA IARA####################################")
             print(res_iara)
             res = {
                 'fulfillmentText': str(res_iara)
             }
+        else:
+            res = act.getAnswer(req)
 
-        print("#####################################################################")
+        print("#################################RESPOSTA####################################")
         print(res)
 
         return make_response(jsonify(res))

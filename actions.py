@@ -188,10 +188,20 @@ def getAnswer(req):
     temp2.append(temp)
     print(temp2)
     result = db.answer.find({"$and":temp2})
+    error = False
     if result.count() > 0:
         result = result[0]
+        print('estou aqui')
+        for param_name in parameters:
+            print(result[param_name])
+            print(req.get('queryResult').get('parameters')[param_name] )
+            if req.get('queryResult').get('parameters')[param_name] != result[param_name]:
+                error = True
         # print(result)
     else:
-        result = None
+        print('elseeee')
+        result = {"fulfillmentText": "Desculpe, nao possuo essa informaçao"}
+    if error:
+        result = {"fulfillmentText": "Desculpe, nao possuo essa informaçao"}
     return generate_response(req, result)
 
