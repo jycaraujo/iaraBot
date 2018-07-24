@@ -12,6 +12,10 @@ class Action(object):
 
     # retorna resposta personalizada com o nome do usuario
     def actionSaudacao(self, req):
+        if self.compare_session(req) is False:
+            self.session_ = self.getSessionId(req)
+            print("SESSION")
+            print(self.session_)
         output = {}
         username = ''
         output_contexts = req.get('queryResult').get('outputContexts')
@@ -50,31 +54,14 @@ class Action(object):
                 # processa resposta sem eventos
                 aux = []
                 if result.get('fulfillmentText') is not None:
+                    # incluir resposta do banco ao dicionario a resposta do chatbot
                     resposta['fulfillmentText'] = result.get('fulfillmentText')
+                    # se houverem parametros na resposta adiciona os devidos parametros ao contexto
                     if result.get('parameters') is not None:
-                        temp = {}
-                        temp['outputContexts'] = req.get('queryResult').get('outputContexts')
+                        resposta['outputContexts'] = self.add_context(req, result)
                         for param in result['parameters']:
-                            if param in result:
-                                resposta['fulfillmentText'] = resposta['fulfillmentText'].replace('<param>', result[param],
-                                                                                                  1)
-                                if temp['outputContexts'] is not None:
-                                    for context in temp['outputContexts']:
-                                        context['parameters'][param] = result[param]
-                                        context['parameters'][str(param + '.original')] = result[param]
-                                        aux.append(context)
-                                # else:
-                                #     resposta['fulfillmentText'] = 'Desculpa, nao possuo essa informaçao'
-                        if len(aux) > 0:
-                            resposta['outputContexts'] = aux
-                            # resposta = None
-                print(resposta)
-                header = {"Authorization": "Bearer " + constants.CLIENT_ACCESS_TOKEN, "Content-Type": "application/json"}
-                url = constants.CONTEXTS_BASE_URL + self.getSessionId(req)
-                r = requests.post(str(url), data=json.dumps(aux), headers=header)
-                # time.sleep(2)
-                # print(aux)
-                # print(r)
+                            resposta['fulfillmentText'] = resposta['fulfillmentText'].replace('<param>', result[param], 1)
+
             else:
                 # processa resposta sem eventos
                 self.generate_followup_event(req, result)
@@ -161,13 +148,19 @@ class Action(object):
             return False
 
     # zera o lifespan dos  contextos atuais
-    def reset_contexts(self, data):
+    def send_contexts_to_dialogflow(self, data):
         header = {"Authorization": "Bearer " + constants.CLIENT_ACCESS_TOKEN, "Content-Type": "application/json"}
-        r = requests.post(constants.DIALOGFLOW_BASE_URL, data=json.dumps(data), headers=header)
-
+        url = constants.CONTEXTS_BASE_URL + self.session_
+        r = requests.post(str(url), data=json.dumps(data), headers=header)
+        print("##########dialogflow req contexto###########")
+        print(r)
 
     # essa funçao recebe uma requisiçao e retorna a resposta cadastrada no banco para os parametros da req
     def getAnswer(self, req):
+        if self.compare_session(req) is False:
+            self.session_ = self.getSessionId(req)
+            print("SESSION"+self.session_)
+
         parameters = req.get('queryResult').get('parameters').keys()
         temp2 = []
         # cada parametro da intençao identificada corresponde a um filtro da query
@@ -192,6 +185,9 @@ class Action(object):
 
     # Return a response based on a given input statement.
     def get_chatterbot_answer(self, req):
+        if self.compare_session(req) is False:
+            self.session_ = self.getSessionId(req)
+            print("SESSION"+self.session_)
         res_iara = self.bot.iara.get_response(req.get('queryResult').get('queryText'))
         print("#################################RESPOSTA IARA####################################")
         print(res_iara)
@@ -199,3 +195,21 @@ class Action(object):
             'fulfillmentText': str(res_iara)
         }
         return res
+
+
+    def add_context(self, req, result):
+        aux = []
+
+        for param in result['parameters']:
+            context = {
+                "name": req.get('session')+'/contexts/'+'_'+param+'_',
+                "parameters": {
+                    param: result[param],
+                    str(param + '.original'): result[param]
+                },
+                "lifespanCount": 5
+            }
+            aux.append(context)
+        self.send_contexts_to_dialogflow(aux)
+        # print(aux)
+        return aux
