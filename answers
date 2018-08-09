@@ -1,0 +1,613 @@
+/* 1 */
+{
+    "_id" : ObjectId("5b36cf44fa6bc9a265f7462c"),
+    "action" : "lugar-horario",
+    "lugar" : "secretaria",
+    "parameters" : [ 
+        "lugar"
+    ],
+    "fulfillmentText" : "Nos dias uteis a/o <param> funciona de 9h-12hrs e 13h-20hrs",
+    "payload" : {
+        "facebook" : {
+            "text" : "Nos dias uteis a/o <param> funciona de 9h-12hrs e 13h-20hrs"
+        }
+    }
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("5b37083dfa6bc9a265f752e3"),
+    "action" : "estagio-supervisionado.sobre",
+    "fulfillmentText" : "Essa disciplina é oferecida para os alunos de graduação do Departamento de Informática matriculados no curso de Engenharia de Computação, através do código ENG1153, e nos cursos de Ciência de Computação e Sistemas de Informação, através do código INF1920. Para qualquer um dos cursos, a disciplina tem 1 crédito, possui pré-requisito de 160 créditos e o critério de avaliação não é através de grau, mas sim de CP (cumpriu) e NC (não cumpriu). Para saber mais informaçoes acesse o link http://www.inf.puc-rio.br/graduacao/#perguntas-frequentes"
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("5b3d36815c87144f66be5444"),
+    "action" : "professor-disciplina",
+    "parameters" : [ 
+        "disciplina"
+    ],
+    "fulfillmentText" : "Voce deseja saber o professor da disciplina <param>?"
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("5b3e50c765d9705579b521c4"),
+    "action" : "coordenador-curso",
+    "parameters" : [ 
+        "curso", 
+        "professor"
+    ],
+    "fulfillmentText" : "O coordenador do curso <param> eh o(a) professor(a) <param>. Deseja saber mais sobre ele(a)?",
+    "curso" : "sistemas de informacao",
+    "professor" : "Ivan Mathias Filho",
+    "payload" : {
+        "facebook" : {
+            "text" : "O coordenador do curso <param> eh o(a) professor(a) <param>. Deseja saber mais sobre ele(a)?"
+        },
+        "kik" : {},
+        "line" : {},
+        "skype" : {},
+        "slack" : {},
+        "telegram" : {},
+        "viber" : {}
+    }
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("5b3e8f2c65d9705579b5308c"),
+    "action" : "coordenador-curso.sabermais",
+    "followupEvent" : {
+        "name" : "maisinfo-professor",
+        "parameters" : []
+    }
+}
+
+/* 6 */
+{
+    "_id" : ObjectId("5b42e5be65d9705579b5a18e"),
+    "action" : "entrega-projeto-final",
+    "fulfillmentText" : "O departamento disponibiliza um roteiro de projeto final com todas as duvidas e informaçoes relevantes :) . Para mais informaçoes acesse o link http://www.inf.puc-rio.br/wordpress/wp-content/uploads/2018/06/Roteiro-Projeto-Final-I-e-II-2018.1.pdf",
+    "payload" : {
+        "facebook" : {
+            "text" : "O departamento disponibiliza um roteiro de projeto final com todas as duvidas e informaçoes relevantes :) . Para mais informaçoes acesse o link http://www.inf.puc-rio.br/wordpress/wp-content/uploads/2018/06/Roteiro-Projeto-Final-I-e-II-2018.1.pdf"
+        },
+        "kik" : {},
+        "line" : {},
+        "skype" : {},
+        "slack" : {},
+        "telegram" : {},
+        "viber" : {}
+    }
+}
+
+/* 7 */
+{
+    "_id" : ObjectId("5b42ebb965d9705579b5a3a0"),
+    "action" : "perder-bolsa",
+    "fulfillmentText" : "Os bolsistas do mestrado podem perder sua bolsa por diversos motivos - consulte as normas do departamento, da universidade e das agências para ter certeza de que estão sendo observadas. Os motivos mais frequentes para perda de bolsa de estudos são: média de aprovação em disciplina inferior a 7 (sete); reprovação em uma disciplina ou desvio do seu roteiro de curso não previamente autorizado pela Comissão de Pós-Graduação.",
+    "payload" : {
+        "facebook" : {
+            "text" : "Os bolsistas do mestrado podem perder sua bolsa por diversos motivos - consulte as normas do departamento, da universidade e das agências para ter certeza de que estão sendo observadas. Os motivos mais frequentes para perda de bolsa de estudos são: média de aprovação em disciplina inferior a 7 (sete); reprovação em uma disciplina ou desvio do seu roteiro de curso não previamente autorizado pela Comissão de Pós-Graduação."
+        },
+        "kik" : {},
+        "line" : {},
+        "skype" : {},
+        "slack" : {},
+        "telegram" : {},
+        "viber" : {}
+    }
+}
+
+/* 8 */
+{
+    "_id" : ObjectId("5b42ecb165d9705579b5a3f8"),
+    "action" : "recuperar-bolsa",
+    "fulfillmentText" : "Alunos que perderem a bolsa em um semestre poderão, no semestre subsequente, candidatar-se a receber bolsa da mesma modalidade ou de outra, concorrendo com novos alunos.",
+    "payload" : {
+        "facebook" : {
+            "text" : "Alunos que perderem a bolsa em um semestre poderão, no semestre subsequente, candidatar-se a receber bolsa da mesma modalidade ou de outra, concorrendo com novos alunos."
+        },
+        "kik" : {},
+        "line" : {},
+        "skype" : {},
+        "slack" : {},
+        "telegram" : {},
+        "viber" : {}
+    }
+}
+
+/* 9 */
+{
+    "_id" : ObjectId("5b42ed7e65d9705579b5a444"),
+    "action" : "lugar-onde",
+    "lugar" : "DI",
+    "fulfillmentText" : "O Departamento de Informática esta localizado em: Rua Marquês de São Vicente, 225 RDC, CEP 22451-900 – Gávea, Rio de Janeiro RJ – Brasil",
+    "payload" : {
+        "facebook" : {
+            "text" : "O Departamento de Informática esta localizado em: Rua Marquês de São Vicente, 225 RDC, CEP 22451-900 – Gávea, Rio de Janeiro RJ – Brasil"
+        }
+    }
+}
+
+/* 10 */
+{
+    "_id" : ObjectId("5b44b26c65d9705579b5b4a3"),
+    "action" : "projeto-orientado",
+    "fulfillmentText" : "O projeto orientado eh uma disciplina oferecida pelo Departamento de Informática que tem por objetivo o desenvolvimento de trabalhos individuais, ou em equipe, sob a supervisão direta de um professor orientador.",
+    "payload" : {
+        "facebook" : {
+            "text" : "O projeto orientado eh uma disciplina oferecida pelo Departamento de Informática que tem por objetivo o desenvolvimento de trabalhos individuais, ou em equipe, sob a supervisão direta de um professor orientador."
+        }
+    }
+}
+
+/* 11 */
+{
+    "_id" : ObjectId("5b466500a91f3ebe5fe54c59"),
+    "action" : "professor-email",
+    "parameters" : [ 
+        "professor", 
+        "email"
+    ],
+    "fulfillmentText" : "O email de <param> eh <param>",
+    "professor" : "Ivan Mathias Filho",
+    "email" : "ivan@puc-rio.br",
+    "payload" : {
+        "facebook" : {
+            "text" : "O email de <param> eh <param>"
+        },
+        "kik" : {},
+        "line" : {},
+        "skype" : {},
+        "slack" : {},
+        "telegram" : {},
+        "viber" : {}
+    }
+}
+
+/* 12 */
+{
+    "_id" : ObjectId("5b4671fca91f3ebe5fe5bfd6"),
+    "action" : "prerequisito",
+    "parameters" : [ 
+        "disciplina"
+    ],
+    "disciplina" : "INF1019",
+    "fulfillmentText" : "o pre-requisito da disciplina <param> eh: INF1006 e INF1315, ou INF1007 e INF1315, ou INF1018, ou INF1315 e INF1318, ou INF1612",
+    "payload" : {
+        "facebook" : {
+            "text" : "o pre-requisito da disciplina <param> eh: INF1006 e INF1315, ou INF1007 e INF1315, ou INF1018, ou INF1315 e INF1318, ou INF1612"
+        }
+    }
+}
+
+/* 13 */
+{
+    "_id" : ObjectId("5b47a3c2a91f3ebe5fe98dc1"),
+    "action" : "iara-quem",
+    "fulfillmentText" : "meu nome eh Iara e eu sou a assistente virtual do DI :)",
+    "payload" : {
+        "facebook" : {
+            "text" : "meu nome eh Iara e eu sou a assistente virtual do DI :)"
+        }
+    }
+}
+
+/* 14 */
+{
+    "_id" : ObjectId("5b47a505a91f3ebe5fe9939f"),
+    "action" : "iara-objetivo",
+    "fulfillmentText" : "meu objetivo eh te ajudar respondendo as duvidas mais frequentes sobre o Departamento de Informatica",
+    "payload" : {
+        "facebook" : {
+            "text" : "meu objetivo eh te ajudar respondendo as duvidas mais frequentes sobre o Departamento de Informatica"
+        }
+    }
+}
+
+/* 15 */
+{
+    "_id" : ObjectId("5b47ab5fa91f3ebe5fe9b16c"),
+    "action" : "lugar-sobre",
+    "parameters" : [ 
+        "lugar"
+    ],
+    "lugar" : "DI",
+    "fulfillmentText" : "O DI dedica-se a atividades diversas. Na área de ensino, destacam-se os cursos de graduação, pós-graduação e extensão. Em pesquisa, destacam-se os programas de Mestrado Acadêmico e Doutorado, bem como os projetos de pesquisa que contam com a infraestrutura dos Núcleos de Inovação Tecnológica (NITs) e da biblioteca. Também na área de extensão o DI tem atuado intensamente, através de cursos e iniciativas diversas que refletem o perfil de seus recursos humanos.",
+    "payload" : {
+        "facebook" : {
+            "text" : "O DI dedica-se a atividades diversas. Na área de ensino, destacam-se os cursos de graduação, pós-graduação e extensão. Em pesquisa, destacam-se os programas de Mestrado Acadêmico e Doutorado, bem como os projetos de pesquisa que contam com a infraestrutura dos Núcleos de Inovação Tecnológica (NITs) e da biblioteca. Também na área de extensão o DI tem atuado intensamente, através de cursos e iniciativas diversas que refletem o perfil de seus recursos humanos."
+        }
+    }
+}
+
+/* 16 */
+{
+    "_id" : ObjectId("5b4a80a8a91f3ebe5feb05ce"),
+    "action" : "oqueperguntar",
+    "fulfillmentText" : "voce pode me pedir informaçoes sobre prazos, docentes, disciplinas, cursos, bolsas de mestrado e outros assuntos relacionados ao departamento "
+}
+
+/* 17 */
+{
+    "_id" : ObjectId("5b4a9d15a91f3ebe5feb194a"),
+    "action" : "satisfeito",
+    "payload" : {
+        "facebook" : {
+            "attachment" : {
+                "type" : "image",
+                "payload" : {
+                    "url" : "https://media0.giphy.com/media/10bxTLrpJNS0PC/giphy.gif",
+                    "is_reusable" : true
+                }
+            }
+        }
+    }
+}
+
+/* 18 */
+{
+    "_id" : ObjectId("5b4aa624a91f3ebe5feb2ce8"),
+    "action" : "professor-sobre",
+    "default" : "true",
+    "fulfillmentText" : "Ainda nao tenho informaçoes sobre esse professor, mas voce pode encontrar mais informaçoes sobre os professores do departamento em http://www.inf.puc-rio.br/departamento/#professores"
+}
+
+/* 19 */
+{
+    "_id" : ObjectId("5b4ac00ca91f3ebe5feb3d70"),
+    "action" : "professor-email",
+    "default" : "true",
+    "fulfillmentText" : "eu nao possuo o email desse professor, mas voce pode encontrar mais informaçoes sobre os professores do departamento em http://www.inf.puc-rio.br/departamento/#professores"
+}
+
+/* 20 */
+{
+    "_id" : ObjectId("5b4e98010f87ad447ac5365c"),
+    "action" : "professor-sobre",
+    "parameters" : [ 
+        "professor"
+    ],
+    "professor" : "Ivan Mathias Filho",
+    "fulfillmentText" : "Possui graduação em Bacharelado em Estatística pela Universidade do Estado do Rio de Janeiro (1992), mestrado em Informática pela Pontifícia Universidade Católica do Rio de Janeiro (1996) e doutorado em Informática pela Pontifícia Universidade Católica do Rio de Janeiro (2002). Atualmente é Professor Adjunto da Pontifícia Universidade Católica do Rio de Janeiro. Atuando principalmente nos seguintes temas:Orientação a Objetos, Frameworks, Meta-modelo da UML e Ferramentas CASE."
+}
+
+/* 21 */
+{
+    "_id" : ObjectId("5b4ea6a80f87ad447ac562d9"),
+    "action" : "lugar-onde",
+    "fulfillmentText" : "Desculpa, nao sei onde fica esse lugar",
+    "lugar" : "LABGRAD",
+    "payload" : {
+        "facebook" : {
+            "text" : "Desculpa, nao sei onde fica esse lugar"
+        }
+    }
+}
+
+/* 22 */
+{
+    "_id" : ObjectId("5b4eab2f0f87ad447ac56671"),
+    "action" : "corpo-docente",
+    "default" : "true",
+    "fulfillmentText" : "Para informaçoes sobre o corpo docente acesse http://www.inf.puc-rio.br/departamento/#professores"
+}
+
+/* 23 */
+{
+    "_id" : ObjectId("5b4eafb90f87ad447ac56b30"),
+    "action" : "inscricao-mestrado",
+    "fulfillmentText" : "As inscriçoes do mestrado podem ser realizadas a partir desse link: http://www.ccpa.puc-rio.br/inscricao_pos/ para mais informaçoes entre em contato com a secretaria",
+    "payload" : {
+        "facebook" : {
+            "text" : "As inscriçoes do mestrado podem ser realizadas a partir desse link: http://www.ccpa.puc-rio.br/inscricao_pos/ para mais informaçoes entre em contato com a secretaria"
+        }
+    }
+}
+
+/* 24 */
+{
+    "_id" : ObjectId("5b4eb0790f87ad447ac56ba2"),
+    "action" : "prerequisito",
+    "fulfillmentText" : "No momento eu nao possuo informacoes sobre essa disciplina, voce pode encontrar mais informaçoes atraves do microhorario no site oficial da PUC-Rio",
+    "payload" : {
+        "facebook" : {
+            "text" : "No momento eu nao possuo informacoes sobre essa disciplina, voce pode encontrar mais informaçoes atraves do microhorario no site oficial da PUC-Rio"
+        }
+    }
+}
+
+/* 25 */
+{
+    "_id" : ObjectId("5b4fa12eb3743d8909f6e009"),
+    "action" : "atividade-complementar",
+    "fulfillmentText" : "Da uma olhada nesse documento que o departamento disponibiliza sobre atividades complementares: http://www.inf.puc-rio.br/~coordbac/Alunos/AtividadesComplementares/Descricao.pdf",
+    "payload" : {
+        "facebook" : {
+            "text" : "Da uma olhada nesse documento que o departamento disponibiliza sobre atividades complementares: http://www.inf.puc-rio.br/~coordbac/Alunos/AtividadesComplementares/Descricao.pdf"
+        }
+    }
+}
+
+/* 26 */
+{
+    "_id" : ObjectId("5b4fa268b3743d8909f6e09e"),
+    "action" : "enade",
+    "fulfillmentText" : "O Exame Nacional de Desempenho de Estudantes (Enade) avalia o rendimento dos concluintes dos cursos de graduação, em relação aos conteúdos programáticos, habilidades e competências adquiridas em sua formação. O exame é obrigatório e a situação de regularidade do estudante no Exame deve constar em seu histórico escolar. Para saber mais acesse http://portal.inep.gov.br/enade",
+    "payload" : {
+        "facebook" : {
+            "text" : "O Exame Nacional de Desempenho de Estudantes (Enade) avalia o rendimento dos concluintes dos cursos de graduação, em relação aos conteúdos programáticos, habilidades e competências adquiridas em sua formação. O exame é obrigatório e a situação de regularidade do estudante no Exame deve constar em seu histórico escolar. Para saber mais acesse http://portal.inep.gov.br/enade"
+        }
+    }
+}
+
+/* 27 */
+{
+    "_id" : ObjectId("5b50c116416b98250558a1b1"),
+    "action" : "ementa",
+    "parameters" : [ 
+        "disciplina"
+    ],
+    "disciplina" : "INF1403",
+    "fulfillmentText" : "De acordo com o microhorario a ementa dessa disciplina eh: Comunicação usuário-sistema. Comunicação projetista usuário. Engenharia cognitiva e semiótica de sistemas interativos. Estilos e paradigmas de interação: interfaces gráficas; manipulação direta, ícones e linguagens visuais. Modelagem de interfaces: cenarização; modelos de tarefas; modelos de usuário; modelos de interação. Concretização do projeto de interface: storyboarding e prototipação de interfaces; ferramentas de apoio a construção de interfaces. Avaliação de sistemas interativos: inspeção e testes com usuários; aspectos éticos na relação com os usuários. Acessibilidade: interfaces para dispositivos móveis; usabilidade universal.",
+    "payload" : {
+        "facebook" : {
+            "text" : "De acordo com o microhorario a ementa dessa disciplina eh: Comunicação usuário-sistema. Comunicação projetista usuário. Engenharia cognitiva e semiótica de sistemas interativos. Estilos e paradigmas de interação: interfaces gráficas; manipulação direta, ícones e linguagens visuais. Modelagem de interfaces: cenarização; modelos de tarefas; modelos de usuário; modelos de interação. Concretização do projeto de interface: storyboarding e prototipação de interfaces; ferramentas de apoio a construção de interfaces. Avaliação de sistemas interativos: inspeção e testes com usuários; aspectos éticos na relação com os usuários. Acessibilidade: interfaces para dispositivos móveis; usabilidade universal."
+        }
+    }
+}
+
+/* 28 */
+{
+    "_id" : ObjectId("5b50c1d6416b98250558a212"),
+    "action" : "ementa",
+    "parameters" : [ 
+        "disciplina"
+    ],
+    "disciplina" : "INF1009",
+    "fulfillmentText" : "De acordo com o microhorario a ementa dessa disciplina eh: Relação da lógica com as questões centrais da filosofia, com ênfase nos aspectos epistemológicos (justificação, dedução, definição), aspectos metafísicos (verdade, essência, individuação) e aspectos linguísticos (termo, proposição, juízo, forma lógica). Noções do desenvolvimento histórico da lógica de Aristóteles a Frege.",
+    "payload" : {
+        "facebook" : {
+            "text" : "De acordo com o microhorario a ementa dessa disciplina eh: Relação da lógica com as questões centrais da filosofia, com ênfase nos aspectos epistemológicos (justificação, dedução, definição), aspectos metafísicos (verdade, essência, individuação) e aspectos linguísticos (termo, proposição, juízo, forma lógica). Noções do desenvolvimento histórico da lógica de Aristóteles a Frege."
+        }
+    }
+}
+
+/* 29 */
+{
+    "_id" : ObjectId("5b50cbb1416b98250558a6b5"),
+    "action" : "ementa",
+    "parameters" : [ 
+        "disciplina"
+    ],
+    "disciplina" : "MAT1260",
+    "fulfillmentText" : "De acordo com o microhorario a ementa dessa disciplina eh: Sistemas lineares. Coordenadas no plano e no espaço. Vetores, produto escalar, determinantes, produto vetorial, produto misto. Equações de retas e planos. Subespaços vetoriais, bases. Transformações lineares, matrizes, autovalores e autovetores",
+    "payload" : {
+        "facebook" : {
+            "text" : "De acordo com o microhorario a ementa dessa disciplina eh: Sistemas lineares. Coordenadas no plano e no espaço. Vetores, produto escalar, determinantes, produto vetorial, produto misto. Equações de retas e planos. Subespaços vetoriais, bases. Transformações lineares, matrizes, autovalores e autovetores"
+        }
+    }
+}
+
+/* 30 */
+{
+    "_id" : ObjectId("5b50cc2d416b98250558a6f1"),
+    "action" : "ementa",
+    "parameters" : [ 
+        "disciplina"
+    ],
+    "disciplina" : "INF1019",
+    "fulfillmentText" : "De acordo com o microhorario a ementa dessa disciplina eh: Introdução: funções e estrutura de um sistema operacional. Processos: conceitos básicos; comunicação e sincronização; escalonamento. Gerência de memória: partições fixas e variáveis; realocação; memória virtual; swapping; sistemas de arquivos.",
+    "payload" : {
+        "facebook" : {
+            "text" : "De acordo com o microhorario a ementa dessa disciplina eh: Introdução: funções e estrutura de um sistema operacional. Processos: conceitos básicos; comunicação e sincronização; escalonamento. Gerência de memória: partições fixas e variáveis; realocação; memória virtual; swapping; sistemas de arquivos."
+        }
+    }
+}
+
+/* 31 */
+{
+    "_id" : ObjectId("5b50d255416b98250558a9f3"),
+    "action" : "coordenador-curso",
+    "parameters" : [ 
+        "curso", 
+        "professor"
+    ],
+    "fulfillmentText" : "O coordenador do curso <param> eh o(a) professor(a) <param>. Deseja saber mais sobre ele(a)?",
+    "curso" : "ciencia da computacao",
+    "professor" : "Ivan Mathias Filho",
+    "payload" : {
+        "facebook" : {
+            "text" : "O coordenador do curso <param> eh o(a) professor(a) <param>. Deseja saber mais sobre ele(a)?"
+        },
+        "kik" : {},
+        "line" : {},
+        "skype" : {},
+        "slack" : {},
+        "telegram" : {},
+        "viber" : {}
+    }
+}
+
+/* 32 */
+{
+    "_id" : ObjectId("5b50d27f416b98250558aa09"),
+    "action" : "coordenador-curso",
+    "parameters" : [ 
+        "curso", 
+        "professor"
+    ],
+    "fulfillmentText" : "O coordenador do curso <param> eh o(a) professor(a) <param>. Deseja saber mais sobre ele(a)?",
+    "curso" : "engenharia da computacao",
+    "professor" : "Noemi de La Rocque Rodriguez",
+    "payload" : {
+        "facebook" : {
+            "text" : "O coordenador do curso <param> eh o(a) professor(a) <param>. Deseja saber mais sobre ele(a)?"
+        },
+        "kik" : {},
+        "line" : {},
+        "skype" : {},
+        "slack" : {},
+        "telegram" : {},
+        "viber" : {}
+    }
+}
+
+/* 33 */
+{
+    "_id" : ObjectId("5b50d332416b98250558aa60"),
+    "action" : "lugar-telefone",
+    "parameters" : [ 
+        "lugar", 
+        "telefone"
+    ],
+    "lugar" : "DI",
+    "telefone" : " (21) 3527-1500",
+    "fulfillmentText" : "O telefone do <param> eh <param>",
+    "payload" : {
+        "facebook" : {
+            "text" : "O telefone do <param> eh <param>"
+        }
+    }
+}
+
+/* 34 */
+{
+    "_id" : ObjectId("5b50d412416b98250558aad0"),
+    "action" : "lugar-telefone",
+    "parameters" : [ 
+        "lugar", 
+        "telefone"
+    ],
+    "lugar" : "secretaria",
+    "telefone" : " (21) 3527-1500",
+    "fulfillmentText" : "O telefone da <param> eh <param>",
+    "payload" : {
+        "facebook" : {
+            "text" : "O telefone da <param> eh <param>"
+        }
+    }
+}
+
+/* 35 */
+{
+    "_id" : ObjectId("5b50d4a7416b98250558ab1c"),
+    "action" : "lugar-telefone",
+    "parameters" : [ 
+        "lugar"
+    ],
+    "lugar" : "default",
+    "fulfillmentText" : "Nao possuo essa informaçao",
+    "payload" : {
+        "facebook" : {
+            "text" : "Nao possuo essa informaçao"
+        }
+    }
+}
+
+/* 36 */
+{
+    "_id" : ObjectId("5b50d7a6416b98250558ac8c"),
+    "action" : "disciplina-onde",
+    "fulfillmentText" : "Desculpe, ainda nao possuo informaçao sobre as salas de aula dessa disciplina mas vc pode consultar em http://microhorario.rdc.puc-rio.br",
+    "payload" : {
+        "facebook" : {
+            "text" : "Desculpe, ainda nao possuo informaçao sobre as salas de aula dessa disciplina mas vc pode consultar em http://microhorario.rdc.puc-rio.br"
+        }
+    }
+}
+
+/* 37 */
+{
+    "_id" : ObjectId("5b50da35416b98250558ade8"),
+    "action" : "professor-onde",
+    "parameters" : [ 
+        "professor"
+    ],
+    "professor" : "Ivan Mathias Filho",
+    "fulfillmentText" : "Sala 507 RDC",
+    "payload" : {
+        "facebook" : {
+            "text" : "Sala 507 RDC"
+        }
+    }
+}
+
+/* 38 */
+{
+    "_id" : ObjectId("5b51048f416b98250558c84d"),
+    "action" : "curso-sobre",
+    "parameters" : [ 
+        "curso"
+    ],
+    "curso" : "engenharia da computacao",
+    "fulfillmentText" : "Voce vai encontrar informaçoes sobre o curso de engenharia da computaçao nesse link: http://www.inf.puc-rio.br/graduacao/engenharia-de-computacao-puc-rio/",
+    "payload" : {
+        "facebook" : {
+            "text" : "Voce vai encontrar informaçoes sobre o curso de engenharia da computaçao nesse link: http://www.inf.puc-rio.br/graduacao/engenharia-de-computacao-puc-rio/"
+        }
+    }
+}
+
+/* 39 */
+{
+    "_id" : ObjectId("5b5106e5416b98250558c9a5"),
+    "action" : "bolsas-mestrado",
+    "fulfillmentText" : "A Pós-Graduação do Departamento de Informática da PUC-Rio recebe quotas de bolsas de estudo de várias agências públicas de fomento ao ensino/pesquisa. Dentre elas, destacam-se: CAPES, CNPq, FAPERJ. Além destas, a própria PUC-Rio oferece bolsas de isenção de taxas para alunos de mestrado e doutorado indicados pela Coordenação de Pós-Graduação do Programa. A universidade mantém também convênios com IES públicas e várias instituições federais, de tal forma que os servidores oficialmente indicados para cursar a pós-graduação no DI são isentos de taxas escolares.",
+    "payload" : {
+        "facebook" : {
+            "text" : "A Pós-Graduação do Departamento de Informática da PUC-Rio recebe quotas de bolsas de estudo de várias agências públicas de fomento ao ensino/pesquisa. Dentre elas, destacam-se: CAPES, CNPq, FAPERJ. Além destas, a própria PUC-Rio oferece bolsas de isenção de taxas para alunos de mestrado e doutorado indicados pela Coordenação de Pós-Graduação do Programa. A universidade mantém também convênios com IES públicas e várias instituições federais, de tal forma que os servidores oficialmente indicados para cursar a pós-graduação no DI são isentos de taxas escolares."
+        }
+    }
+}
+
+/* 40 */
+{
+    "_id" : ObjectId("5b51087e416b98250558ca92"),
+    "action" : "sobre-bolsa",
+    "parameters" : [ 
+        "tipodebolsa"
+    ],
+    "tipodebolsa" : "CAPES",
+    "fulfillmentText" : "A CAPES concede ao programa recursos anuais do PROEX destinados a custeio e capital. Dentro das rubricas de custeio estão incluídas bolsas de estudo, na forma de mensalidades + taxas escolares (CAPES Modalidade I) ou apenas taxas escolares (CAPES Modalidade II). A aplicação destes recursos pelo programa é apresentada no Relatório Anual do programa (consultar a seção 'Sociedade > Relatórios' no menu ao lado e navegar para 'Relatórios DI').",
+    "payload" : {
+        "facebook" : {
+            "text" : "A CAPES concede ao programa recursos anuais do PROEX destinados a custeio e capital. Dentro das rubricas de custeio estão incluídas bolsas de estudo, na forma de mensalidades + taxas escolares (CAPES Modalidade I) ou apenas taxas escolares (CAPES Modalidade II). A aplicação destes recursos pelo programa é apresentada no Relatório Anual do programa (consultar a seção 'Sociedade > Relatórios' no menu ao lado e navegar para 'Relatórios DI')."
+        }
+    }
+}
+
+/* 41 */
+{
+    "_id" : ObjectId("5b5108ab416b98250558caae"),
+    "action" : "sobre-bolsa",
+    "parameters" : [ 
+        "CNPq"
+    ],
+    "tipodebolsa" : "CNPq",
+    "fulfillmentText" : "O CNPq concede quotas regulares de bolsas de mestrado (13) e doutorado (35) ao programa.",
+    "payload" : {
+        "facebook" : {
+            "text" : "O CNPq concede quotas regulares de bolsas de mestrado (13) e doutorado (35) ao programa."
+        }
+    }
+}
+
+/* 42 */
+{
+    "_id" : ObjectId("5b5108da416b98250558cac9"),
+    "action" : "sobre-bolsa",
+    "parameters" : [ 
+        "tipodebolsa"
+    ],
+    "tipodebolsa" : "FAPERJ",
+    "fulfillmentText" : "A FAPERJ concede bolsas-prêmio (FAPERJ Nota 10) aos melhores alunos de mestrado (2 por ano) e doutorado (2 por ano) do programa.",
+    "payload" : {
+        "facebook" : {
+            "text" : "A FAPERJ concede bolsas-prêmio (FAPERJ Nota 10) aos melhores alunos de mestrado (2 por ano) e doutorado (2 por ano) do programa."
+        }
+    }
+}
